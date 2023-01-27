@@ -1,0 +1,60 @@
+//compress: true
+@import "vars";
+
+html{
+font-style: 15px;
+};
+p{
+    margin: 0 0 1rem;
+
+}
+body{
+    font-size: 1rem;
+    margin: 0;
+    font-family: 'Montserrat',
+    sans-serif;
+    color: @black;
+    transition: scrollTop .1s linear;
+    &.no-scroll{
+        overflow: hidden;
+    }
+};
+h1,h2,h3,h4,h5{
+    margin: 0;
+}
+*,
+*:before,
+*:after{
+    box-sizing: border-box;
+};
+
+/* vendors */
+@import "vendor/slick";
+@import "vendor/slick-theme";
+
+/* Blocks */
+
+@import "blocks/container";
+@import "blocks/header";
+@import "blocks/user";
+@import "blocks/nav";
+@import "blocks/intro";
+@import "blocks/social";
+@import "blocks/btn";
+@import "blocks/works";
+@import "blocks/portfolio";
+@import "blocks/work";
+@import "blocks/about";
+@import "blocks/reviews";
+@import "blocks/news";
+@import "blocks/articles";
+@import "blocks/footer";
+@import "blocks/modal";
+@import "blocks/modal-work";
+@import "blocks/time-line";
+@import "blocks/progress-bar";
+@import "blocks/contact";
+@import "blocks/form";
+
+
+@import "helpers";
