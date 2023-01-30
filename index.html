@@ -12,12 +12,13 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap"
       rel="stylesheet"
     />
+    <script src="/tniser.github.io/JS/main.js" type="module"></script>
   </head>
   <body>
     <header class="header">
-      <section class="navbar">
+      <section id="navbar" class="navbar">
         <div class="navbar__line">
-          <a href="#" class="logo"></a>
+          <a href="#" id="logo" class="logo"></a>
 
           <button class="menu-button">
             <div class="menu-icon"></div>
@@ -30,10 +31,10 @@
               <a href="#">Home</a>
             </li>
             <li class="list__item">
-              <a href="#">Products</a>
+              <a href="#products">Products</a>
             </li>
             <li class="list__item">
-              <a href="#">Workflow</a>
+              <a href="#workflow">Workflow</a>
             </li>
             <li class="list__item">
               <a href="#">Team</a>
@@ -47,10 +48,13 @@
     </header>
 
     <main>
-      <section class="Products">
+      <section id="hero" class="hero">
+        <h1>Debix</h1>
+      </section>
+      <section id="products" class="products">
         <h1>Products</h1>
       </section>
-      <section class="Workflow">
+      <section id="workflow" class="workflow">
         <h1>Workflow</h1>
       </section>
     </main>
