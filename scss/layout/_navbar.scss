@@ -1,0 +1,123 @@
+.navbar {
+  background-color: $BG-dark;
+  .navbar__line {
+    width: 100vw;
+    padding: 0.4rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    width: 4rem;
+    height: 4rem;
+    background: url("../images/logo.svg") center no-repeat;
+    background-size: contain;
+    filter: invert(100%);
+  }
+
+  .menu-button {
+    @include flexCenter;
+    height: 48px;
+    width: 48px;
+    border: none;
+    background-color: transparent;
+    margin-right: 15px;
+    position: relative;
+    transform: rotate(var(--btn-rotate, 0));
+    transition: all 0.3s;
+
+    .menu-icon,
+    .menu-icon::after,
+    .menu-icon::before {
+      display: block;
+      height: 4px;
+      width: 100%;
+      background-color: $BG-light;
+      border-radius: 20px;
+      transition: all 0.3s;
+    }
+    .menu-icon::after,
+    .menu-icon::before {
+      content: "";
+      position: absolute;
+    }
+    .menu-icon::before {
+      transform: var(--trans-before, translate(0px, -13px));
+    }
+    .menu-icon::after {
+      transform: var(--trans-after, translate(0px, 13px));
+    }
+  }
+  .navbar__menu {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    background-color: $BG-dark;
+    animation: showMenu 0.3s ease-in-out forwards;
+    transform-origin: top;
+
+    .navbar__list {
+      list-style: none;
+      @include flexCenter;
+      flex-flow: column nowrap;
+      width: 100%;
+      .list__item {
+        font-size: 1.5em;
+        padding-bottom: 0.7em;
+        margin-top: 0.5em;
+        border-bottom: 1px solid white;
+        display: block;
+        text-align: center;
+        width: 100%;
+      }
+      .list__item a {
+        text-decoration: none;
+        color: $FC-light;
+      }
+      .list__item a:hover,
+      .list__item a:active {
+        transition: background-color 0.2s linear;
+        border-radius: 20px;
+        padding: 0.5rem;
+        background-color: rgb(165, 162, 162);
+      }
+    }
+  }
+}
+
+@include mq(768px) {
+  .navbar {
+    font-size: 1em;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    .menu-button {
+      display: none;
+    }
+    .navbar__line {
+      width: 50%;
+    }
+
+    .navbar__menu {
+      display: flex;
+      animation: none;
+      justify-content: space-between;
+
+      .navbar__list {
+        display: flex;
+        flex-flow: row nowrap;
+        .list__item {
+          padding-bottom: 0;
+          margin-top: 0;
+          border-bottom: none;
+          display: inline-block;
+          text-align: center;
+          width: 50%;
+        }
+      }
+    }
+  }
+}

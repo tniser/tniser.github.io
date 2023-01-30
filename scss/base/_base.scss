@@ -1,0 +1,28 @@
+/* :root {
+  --after-rotate: -45deg;
+  --before-rotate: 45deg;
+} */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: "Montserrat", sans-serif;
+}
+
+header {
+  position: sticky;
+  top: 0;
+}
+
+.hero {
+  height: 100vh;
+}
+
+main section {
+  height: 100vh;
+}
