@@ -1,12 +1,20 @@
+let OP = true;
 window.onscroll = function () {
-  scrollFunction();
+  scrollFunction(OP);
 };
 
 document.getElementById("menu-btn").addEventListener("click", showMenu);
 
-function scrollFunction() {
-  if (document.body.scrollTop > 75 || document.documentElement.scrollTop > 75) {
-    document.getElementById("navbar").style.opacity = "0.5";
+function scrollFunction(op) {
+  if (op) {
+    if (
+      document.body.scrollTop > 75 ||
+      document.documentElement.scrollTop > 75
+    ) {
+      document.getElementById("navbar").style.opacity = "0.5";
+    } else {
+      document.getElementById("navbar").style.opacity = "1";
+    }
   } else {
     document.getElementById("navbar").style.opacity = "1";
   }
@@ -22,11 +30,13 @@ function showMenu() {
     btn.style.setProperty("--trans-after", "translate(0px, 13px)");
     btn.style.setProperty("--trans-before", "translate(0px, -13px)");
     btn.style.backgroundColor = "#FFF";
+    OP = true;
   } else {
     menu.style.display = "flex";
     btnMenu.style.setProperty("--btn-rotate", "360deg");
     btn.style.setProperty("--trans-before", "rotate(-45deg)");
     btn.style.setProperty("--trans-after", "rotate(45deg)");
     btn.style.backgroundColor = "transparent";
+    OP = false;
   }
 }
