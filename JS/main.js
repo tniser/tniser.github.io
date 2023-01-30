@@ -1,5 +1,5 @@
-document.getElementById("menu-btn").addEventListener("click", showMenu);
 let OP = true;
+document.getElementById("menu-btn").addEventListener("click", showMenu);
 window.onscroll = function () {
   scrollFunction(OP);
 };
