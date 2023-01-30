@@ -37,6 +37,7 @@ function showMenu() {
     btn.style.setProperty("--trans-before", "rotate(-45deg)");
     btn.style.setProperty("--trans-after", "rotate(45deg)");
     btn.style.backgroundColor = "transparent";
+    document.getElementById("navbar").style.opacity = "1";
     OP = false;
   }
 }
