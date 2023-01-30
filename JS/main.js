@@ -1,10 +1,8 @@
+document.getElementById("menu-btn").addEventListener("click", showMenu);
 let OP = true;
 window.onscroll = function () {
   scrollFunction(OP);
 };
-
-document.getElementById("menu-btn").addEventListener("click", showMenu);
-
 function scrollFunction(op) {
   if (op) {
     if (
