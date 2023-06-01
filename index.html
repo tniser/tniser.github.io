@@ -4,59 +4,1140 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Debix Home Page</title>
-    <link rel="stylesheet" href="css/main.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Dota 2 5v5 - Prime Time - epulze.com</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
-    <script src="/JS/main.js" type="module"></script>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="https://cdn.epulze.com/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://cdn.epulze.com/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="https://cdn.epulze.com/favicon/favicon-16x16.png"
+    />
+    <link
+      href="https://unpkg.com/css.gg@2.0.0/icons/css/globe-alt.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/css.gg@2.0.0/icons/css/chevron-down.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <header class="header">
-      <section id="navbar" class="navbar">
-        <div class="navbar__line">
-          <a href="#" id="logo" class="logo"></a>
+    <style>
+      :root {
+        --color-primary: rgb(8, 19, 37);
+        --color-secondary: rgb(146, 162, 190);
+        --color-accent: #b6ff40;
+        --color-primary-light: rgb(16, 31, 60);
+        --color-blue-light: #20395f;
+        --color-blue-dark: #101f3c;
 
-          <button class="menu-button" id="menu-btn">
-            <div class="menu-icon" id="menu-icon"></div>
+        /* ... */
+      }
+      body {
+        font-family: "Rajdhani", sans-serif;
+      }
+
+      hr {
+        border: none;
+        border-top: var(--color-blue-light) 1px solid;
+        opacity: 0.5;
+        margin: 10px 0;
+      }
+
+      @media only screen and (min-width: 768px){
+        hr{
+            margin: 20px 0;
+        }
+        
+      }
+
+      footer {
+        left: 0;
+        bottom: 0;
+      }
+
+      .age_limit_ico {
+        background: transparent
+          url("https://epulze.com/static/build/age-plus-4dcfff4921.svg")
+          no-repeat 100%;
+        background-size: contain;
+        color: #92a2be;
+        cursor: default;
+        float: right;
+        font-size: 50px;
+        font-weight: 700;
+        height: 39px;
+        line-height: 39px;
+        padding-right: 22px;
+      }
+      .diamondShape {
+        align-items: center;
+        border: 2px solid #92a2be;
+        display: inline-flex;
+        height: 60px;
+        justify-content: center;
+        overflow: hidden;
+        transform: rotate(45deg);
+        width: 60px;
+      }
+
+      .diamondShape::before {
+        content: "";
+        display: block;
+        width: 141%;
+        height: 141%;
+        flex-shrink: 0;
+        background: center/cover;
+        background-image: url("https://cdn.epulze.com/teams/6f96ebdd-c06c-46b4-841d-7b300c1ab552-1666265816_15-mykaleidoscope-ru-p-shrek-chelovek-vkontakte-15-jpg");
+        transform: rotate(-45deg);
+      }
+      .powered_logo {
+        background-size: contain;
+        display: block;
+        float: left;
+        height: 30px;
+        margin: 0 15px 15px 0;
+        width: 100px;
+      }
+
+      .powered_logo_steam {
+        background: transparent
+          url("https://epulze.com/static/build/steam-logo-0b7a41bde8.svg")
+          no-repeat 0;
+      }
+
+      .powered_logo_dota {
+        background: transparent
+          url("https://epulze.com/public/assets/images/dota.svg") no-repeat 0;
+      }
+
+      .powered_logo_le {
+        background: transparent
+          url("https://epulze.com/static/build/encrypt-logo-8f9a34ac95.svg")
+          no-repeat 0;
+      }
+
+      .powered_logo_visa {
+        background: transparent
+          url("https://epulze.com/static/build/verified-visa-logo-6453e21535.svg")
+          no-repeat 0;
+        width: 60px;
+      }
+
+      .powered_logo_mc {
+        background: transparent
+          url("https://epulze.com/static/build/verified-mc-logo-246104af7b.svg")
+          no-repeat 0;
+      }
+
+      .powered_logo_psc {
+        background: transparent
+          url("https://epulze.com/public/assets/images/paysafecard.svg")
+          no-repeat 0;
+      }
+      .modal {
+        pointer-events: none;
+        opacity: 0;
+      }
+
+      .modal.show {
+        pointer-events: all;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+      }
+
+      .modal.show a {
+        transition: none;
+      }
+    </style>
+    <header
+      class="sticky top-0 z-[100] h-16 w-full flex justify-between items-center bg-[#081325] pl-4 pr-0 md:pr-4 border-b border-[#3C5376]"
+    >
+      <a href="https://epulze.com/home">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="551"
+          height="82"
+          viewBox="0 0 551 82"
+          fill="none"
+          class="xl:h-[26px] md:h-[22px] h-[18px] w-full"
+        >
+          <path
+            d="M258.279 22.833V65.2559H269.584V48.6441H310.041V48.4456V22.833H258.279ZM298.737 38.783H269.584V32.6942H298.737V38.783Z"
+            fill="white"
+          />
+          <path
+            d="M438.884 32.6942H475.375L438.884 55.4609V65.3221H490.645V55.4609H453.89L490.645 32.6942V22.833H438.884V32.6942Z"
+            fill="white"
+          />
+          <path
+            d="M197.99 22.833V65.3221H249.752V55.4609H209.295V48.6441H249.752V38.783H209.295V32.6942H249.752V22.833H197.99Z"
+            fill="white"
+          />
+          <path
+            d="M551.001 32.6942V22.833H510.543H499.239V65.3221H510.543H551.001V55.4609H510.543V48.6441H551.001V38.783H510.543V32.6942H551.001Z"
+            fill="white"
+          />
+          <path
+            d="M359.027 55.4609H329.807V22.833H318.569V65.3221H370.265V22.833H359.027V55.4609Z"
+            fill="white"
+          />
+          <path
+            d="M389.964 22.833H378.66V65.3221H430.422V55.4609H389.964V22.833Z"
+            fill="white"
+          />
+          <path
+            d="M177.781 65.2557V53.0781H116.667V64.5939L117.263 65.2557H177.781Z"
+            fill="url(#paint0_linear_130_1296)"
+          />
+          <path
+            d="M105.146 19.7887V53.0785L117.262 65.256V53.0785V8.6039L116.799 8.14062L105.146 19.7887Z"
+            fill="url(#paint1_linear_130_1296)"
+          />
+          <path
+            d="M55.8837 69.9547L55.95 39.7093L55.6189 39.3784H43.833V81.9999L55.8837 69.9547Z"
+            fill="url(#paint2_linear_130_1296)"
+          />
+          <path
+            d="M108.722 0L55.8837 52.7474L44.4951 64.7264V81.3382L55.8837 69.9548L105.146 20.7151L117.263 8.60371L108.722 0Z"
+            fill="#A9F52C"
+          />
+          <path
+            d="M0 27.5981V39.7095H55.9499L43.7667 27.5981H0Z"
+            fill="#A9F52C"
+          />
+          <defs>
+            <linearGradient
+              id="paint0_linear_130_1296"
+              x1="184.615"
+              y1="59.171"
+              x2="113.464"
+              y2="59.171"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop offset="0.5566" stop-color="#A9F52C" />
+              <stop offset="1" stop-color="#5FB70B" />
+            </linearGradient>
+            <linearGradient
+              id="paint1_linear_130_1296"
+              x1="111.216"
+              y1="65.6435"
+              x2="111.216"
+              y2="11.4958"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop offset="0.6404" stop-color="#A9F52C" />
+              <stop offset="1" stop-color="#5FB70B" />
+            </linearGradient>
+            <linearGradient
+              id="paint2_linear_130_1296"
+              x1="49.8699"
+              y1="62.3296"
+              x2="49.8699"
+              y2="43.0664"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stop-color="#A9F52C" />
+              <stop offset="1" stop-color="#5FB70B" />
+            </linearGradient>
+          </defs>
+          <deepl-alert xmlns="" />
+          <deepl-alert xmlns="" />
+          <deepl-alert xmlns="" />
+          <deepl-alert xmlns="" />
+        </svg>
+      </a>
+      <div id="burger" class="lg:hidden absolute top-4 right-4 h-[25px] w-6 flex flex-col justify-evenly">
+        <div id="b_line1" class="bg-[var(--color-accent)] w-5 h-[3px] "></div>
+        <div id="b_line2" class="bg-[var(--color-accent)] w-5 h-[3px] "></div>
+        <div id="b_line3" class="bg-[var(--color-accent)] w-5 h-[3px] "></div>
+      </div>
+      <div id="shadow_before_menu" class="modal top-0 left-0 z-[101] absolute w-screen h-screen bg-[var(--color-primary)] opacity-[80%]"></div>
+      <div id="navbar_menu" class="modal p-4 top-8 left-[50%] -translate-x-1/2 tra z-[102] absolute w-[350px] h-[95vh] bg-[var(--color-accent)] rounded-xl lg:static flex-col flex lg:flex-row ">
+        <div id="close_menu" class="h-10 w-full flex flex-row justify-end p-4">
+            <div id="cross_square" class="relative right-2">
+                <div id="line1" class="absolute bg-white w-5 h-[2px] origin-center rotate-45"></div>
+                <div id="line2" class="absolute bg-white w-5 h-[2px] origin-center -rotate-45"></div>    
+
+            </div>
+           
+        </div>
+        <ul id="navbar_list" class="flex p-4 mt-2 flex-col lg:flex-row lg:h-full h-[55vh] justify-between text-lg font-medium">
+                <li><a>Home</a></li>
+                <li><a>Portals</a></li>
+                <li><a>Quick Match</a></li>
+                <li><a>Tournaments</a></li>
+                <li><a>Games</a></li>
+                <li><a>More</a></li>
+                <hr class="m-0 border-t-[var(--color-blue-dark)] opacity-20">
+
+        </ul>
+        
+        
+        <button
+          id="sign_in"
+          class="absolute lg:static bottom-5 left-10 text-xl mr-1 md:mr-6 h-10 btn rounded-lg px-4 hover:bg-white/10 transition ease-in-out duration-300 uppercase font-semibold md:text-lg text-[var(--color-primary)] showAuthWin"
+        >
+          Sign in
+        </button>
+        <button
+          id="sign_out"
+          class="absolute lg:static bottom-5 right-10 mr-1 md:mr-6 h-10 btn rounded-lg px-4 hover:bg-white transition ease-in-out duration-300 uppercase font-semibold text-xl md:text-lg text-[var(--color-primary)] showAuthWin"
+        >
+          Sign up
+        </button>
+
+        <div id="dropdown-wrapper" class="inline-block">
+            <button
+              onclick="toggleMenu()"
+              class="h-10 px-4 text-[var(--color-primary)] lg:text-[#92a2be] flex gap-2 items-center font-bold hover:text-white"
+            >
+              <i class="gg-globe-alt"></i>
+              En
+              <i class="gg-chevron-down"></i>
+            </button>
+            <div
+              id="menu"
+              class="hidden z-50 absolute right-6 mt-6 flex flex-col bg-white drop-shadow-md w-[180px] rounded-xl border-solid border border-[#3C5376]"
+            >
+              <a
+                class="px-5 py-3 bg-[#101f3c] hover:text-[#b6ff40] text-white font-semibold"
+                href="https://popaprokek.ru/en/team/2526977/join-with-token/3a6837x4-2530-4b4d-937c-3145213ve"
+                >English</a
+              >
+              <a
+                class="px-5 py-3 bg-[#101f3c] hover:text-[#b6ff40] text-[#92a2be] font-semibold"
+                href="https://popaprokek.ru/ru/team/2526977/join-with-token/3a6837x4-2530-4b4d-937c-3145213ve"
+                >Russian</a
+              >
+              <a
+                class="px-5 py-3 bg-[#101f3c] hover:text-[#b6ff40] text-[#92a2be] font-semibold"
+                href="https://popaprokek.ru/pt/team/2526977/join-with-token/3a6837x4-2530-4b4d-937c-3145213ve"
+                >Portuguese</a
+              >
+              <a
+                class="px-5 py-3 bg-[#101f3c] hover:text-[#b6ff40] text-[#92a2be] font-semibold"
+                href="https://popaprokek.ru/es/team/2526977/join-with-token/3a6837x4-2530-4b4d-937c-3145213ve"
+                >Spanish</a
+              >
+            </div>
+          </div>
+  
+          <!-- Javascript code -->
+          <script>
+            
+            const burger = document.getElementById("burger");
+            const menu_list = document.getElementById("navbar_menu");
+            const shadow_menu = document.getElementById("shadow_before_menu");
+            const close_menu = document.getElementById("close_menu");
+
+            burger.addEventListener("click", () => {
+                    menu_list.classList.add("show");
+                    shadow_menu.classList.add("show");
+            })
+            shadow_menu.addEventListener("click", () => {
+                menu_list.classList.remove("show");
+                shadow_menu.classList.remove("show");
+            })
+            close_menu.addEventListener("click", () => {
+                menu_list.classList.remove("show");
+                shadow_menu.classList.remove("show");
+            })
+
+            var menu = document.getElementById("menu");
+  
+            // open/close the menu when the user clicks on the button
+            function toggleMenu() {
+              if (menu.classList.contains("hidden")) {
+                menu.classList.remove("hidden");
+              } else {
+                menu.classList.add("hidden");
+              }
+            }
+  
+            // close the menu when the user clicks outside of it
+            window.onclick = function (event) {
+              var dropdownWrapper = document.getElementById("dropdown-wrapper");
+              if (
+                !dropdownWrapper.contains(event.target) &&
+                !menu.classList.contains("hidden")
+              ) {
+                menu.classList.add("hidden");
+              }
+            };
+          </script>
+        </div>
+    </header>
+    <div id="modal_container_full" class="modal ">
+      <div
+        id="modal_container"
+        class="z-[1000] fixed top-[10%] sm:top-[15%] left-[50%] translate-x-[-50%] flex flex-col justify-center items-center max-w-[500px] w-full pl-[6px] pr-[20px]"
+      >
+        <div
+          class="relative h-[72px] w-full bg-[#20395f] flex flex-col justify-center text-white font-medium text-[26px]"
+        >
+          <div class="text-center">ADD GAME</div>
+          <button
+            id="cross_close"
+            class="absolute h-[20px] w-[20px] right-[26px]"
+            style="
+              background-image: url('https://epulze.com/static/build/close-icon-b6165372a6.svg');
+            "
+          ></button>
+        </div>
+        <div class="w-full h-full bg-[#101f3c]">
+          <div
+            class="h-[140px] flex flex-col justify-end text-4xl text-white font-medium px-[30px] pt-[30px]"
+            style="
+              background-size: cover;
+              background-image: linear-gradient(180deg, #101f3c00, #101f3c),
+                url('https://epulze.com/static/build/default-e0b2220ca5.jpg');
+            "
+          >
+            Dota 2
+          </div>
+          <div class="px-[30px] text-[#92a2be] font-medium text-lg">
+            <p class="my-[17px]">Sync your Steam account</p>
+            <p class="my-[17px]">
+              Please make sure you've played at least 1 game with your Dota 2
+              Account before connecting it to Epulze!
+            </p>
+            <p class="my-[17px]">We only support the PC Edition of Dota 2!</p>
+          </div>
+          <button
+            class="w-[85%] mx-auto mb-6 flex flex-row justify-center bg-lime-400 hover:bg-lime-500 rounded-3xl showAuthWin"
+          >
+            <div
+              href=""
+              type="submit"
+              class="py-3 flex flex-row gap-3 text-[#101f3c] text-lg font-semibold"
+            >
+              <svg
+                class="pt-[2px]"
+                width="24"
+                height="24"
+                viewBox="0 0 22 22"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M22 11C22 16.8867 17.0677 21.6562 10.9823 21.6562C5.93468 21.6562 1.68548 18.3777 0.381452 13.9047L4.60403 15.5934C4.8879 16.9727 6.15202 18.0168 7.66008 18.0168C9.39879 18.0168 10.8492 16.6246 10.7738 14.8586L14.5218 12.2719C16.8327 12.3277 18.771 10.5145 18.771 8.2543C18.771 6.03711 16.9081 4.23672 14.6149 4.23672C12.3218 4.23672 10.4589 6.04141 10.4589 8.2543V8.30586L7.83306 11.9883C7.14556 11.9496 6.47137 12.1344 5.90363 12.5082L0 10.1449C0.452419 4.65781 5.19395 0.34375 10.9823 0.34375C17.0677 0.34375 22 5.11328 22 11ZM6.90605 16.5129L5.55323 15.9715C5.80182 16.4716 6.23106 16.866 6.75968 17.0801C7.95282 17.5613 9.32339 17.0113 9.82016 15.8598C10.0597 15.3012 10.0641 14.6867 9.8246 14.1281C9.58508 13.5695 9.1371 13.1313 8.56048 12.8992C7.98831 12.6672 7.37621 12.6758 6.83508 12.8734L8.23226 13.432C9.11048 13.7844 9.52742 14.7598 9.15927 15.6105C8.79113 16.4656 7.78427 16.8652 6.90605 16.5129ZM14.6149 10.9312C13.0891 10.9312 11.8472 9.72813 11.8472 8.2543C11.8472 6.78047 13.0891 5.57734 14.6149 5.57734C16.1407 5.57734 17.3827 6.78047 17.3827 8.2543C17.3827 9.72813 16.1452 10.9312 14.6149 10.9312ZM14.6194 10.2609C15.7681 10.2609 16.6996 9.35859 16.6996 8.25C16.6996 7.13711 15.7681 6.23906 14.6194 6.23906C13.4706 6.23906 12.5391 7.14141 12.5391 8.25C12.5435 9.35859 13.475 10.2609 14.6194 10.2609Z"
+                  fill="#101f3c"
+                ></path>
+              </svg>
+              Continue with Steam
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      id="modal_container_shadow"
+      class="modal z-[999] fixed w-full h-screen bg-black/90 top-0 left-0"
+    ></div>
+    <a href="https://epulze.com/home" class="hidden sm:visible">
+      <img
+        src="https://epulze.com/public/assets/images/logo.svg"
+        class="z-30 absolute top-[20px] left-[16px] h-7"
+      />
+    </a>
+    <!-- Team Frame -->
+    <!--  <div
+      id="link_window"
+      class="w-1/2 h-2/3 z-30 border-2 border-[var(--color-blue-dark)] absolute top-1/4 left-1/4 bg-[var(--color-primary)] hidden"
+    >
+      <div
+        class="bg-no-repeat bg-cover bg-center w-full h-2/3 bg-[url('https://cdn.epulze.com/teams/9c9d13b9-f198-4647-b142-853f0a186e01-a7e4b49fa28a8e49e23b25011c7dcdbe-jpg')]"
+      >
+        <div
+          id="close"
+          class="relative text-end pr-4 pt-2 text-4xl font-bold text-[var(--color-accent)] cursor-pointer"
+        >
+          ✘
+        </div>
+        <div
+          class="relative z-40 w-full h-80 top-0 left-0 bg-gradient-to-b from-[rgba(0,0,0,0)] to-[var(--color-primary)] flex flex-col justify-center items-center p-4 gap-6"
+        >
+          <div
+            class="mt-16 w-1/2 z-60 flex flex-row gap-8 justify-center items-center"
+          >
+            <div class="diamondShape"></div>
+            <p class="text-4xl text-white font-medium">Aboba Team</p>
+          </div>
+          <p class="text-xl font-medium text-[var(--color-secondary)]">
+            <span id="team" class="font-bold">Abob</span> invited you to the
+            team
+          </p>
+          <button
+            class="h-10 w-1/3 mt-2 btn rounded bg-lime-400 hover:bg-lime-300 uppercase font-semibold text-lg text-[#20395f] showAuthWin"
+          >
+            Accept Invite
           </button>
         </div>
 
-        <nav class="navbar__menu" id="menu">
-          <ul class="navbar__list">
-            <li class="list__item">
-              <a href="#">Home</a>
-            </li>
-            <li class="list__item">
-              <a href="#products">Products</a>
-            </li>
-            <li class="list__item">
-              <a href="#workflow">Workflow</a>
-            </li>
-            <li class="list__item">
-              <a href="#">Team</a>
-            </li>
-            <li class="list__item">
-              <a href="#">Contact</a>
-            </li>
-          </ul>
-        </nav>
+      </div>
+    </div> -->
+    <!--     </div> -->
+    <main class="w-full h-full bg-[var(--color-primary)]">
+      <!-- SIDEBAR -->
+      <section
+        id="sidebar"
+        class="hidden xl:block fixed left-0 w-[212px] h-screen border-[var(--)] text-[var(--color-secondary)] border-r-[var(--color-blue-light)] border-r-2"
+      >
+        <div
+          id="balance"
+          class="border-b-[var(--color-blue-light)] border-b-2 bg-[var(--color-primary-light)] p-1 flex-row flex gap-10 items-center justify-between"
+        >
+          <div class="p-3">
+            <p class="font-bold mb-1">Your balance:</p>
+            <div class="flex flex-row items-center gap-4">
+              <p class="flex flex-row items-center gap-1">
+                <svg
+                  version="1.0"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16.000000pt"
+                  height="16.000000pt"
+                  class="text-[var(--color-accent)]"
+                  viewBox="0 0 76.000000 70.000000"
+                  preserveAspectRatio="xMidYMid meet"
+                >
+                  <g
+                    transform="translate(0.000000,70.000000) scale(0.100000,-0.100000)"
+                    fill="#b6ff40"
+                    stroke="none"
+                  >
+                    <path
+                      d="M195 643 c-36 -9 -87 -55 -106 -97 -16 -36 -19 -68 -19 -268 l0 -228
+                130 0 130 0 0 50 0 50 -70 0 -70 0 0 50 0 50 140 0 140 0 0 25 0 25 -106 0
+                c-151 0 -173 16 -174 123 0 59 3 71 25 92 18 19 35 25 70 25 l45 0 0 55 0 55
+                -57 -1 c-32 -1 -67 -4 -78 -6z"
+                    />
+                    <path
+                      d="M430 595 l0 -55 76 0 75 0 -3 -47 -3 -48 -142 -3 c-135 -2 -143 -4
+                -143 -22 0 -19 7 -20 100 -20 122 0 162 -14 179 -60 22 -64 7 -151 -29 -170
+                -10 -6 -39 -10 -64 -10 l-46 0 0 -55 0 -55 63 0 c76 0 135 25 168 71 24 33 24
+                39 27 282 l3 247 -131 0 -130 0 0 -55z"
+                    />
+                  </g>
+                </svg>
+                <span>0</span>
+              </p>
+              <p class="flex flex-row items-center gap-1">
+                <svg
+                  aria-hidden="true"
+                  focusable="false"
+                  data-prefix="fas"
+                  data-icon="token"
+                  class="w-4 h-4 text-[var(--color-accent)]"
+                  role="img"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M511.921 109.248L402.562 0L109.248 0.0788269L0 109.438L0.0243897 200.438H132.702L177.147 245.154L177.135 250.635L313.167 113.202L353.708 154.544V274.703H511.966L511.921 109.248Z M511.984 342.197H331.004L286.815 297.253V235.321L110.237 413.944V267.739H0.0424274L0.0786133 402.752L109.438 512L402.752 511.921L512 402.562L511.984 342.197Z"
+                  ></path>
+                </svg>
+                <span>0</span>
+              </p>
+            </div>
+          </div>
+          <div class="h-3 w-3 mr-4">
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              data-prefix="fas"
+              data-icon="chevron-right"
+              class="svg-inline--fa fa-chevron-right text-grey-200"
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 320 512"
+            >
+              <path
+                fill="currentColor"
+                d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+              ></path>
+            </svg>
+          </div>
+        </div>
+        <ul class="list-none text-[17px] font-medium p-2 mt-2">
+          <li
+            class="mb-4 p-2 hover:bg-[var(--color-primary-light)] hover:text-white cursor-pointer rounded-lg flex gap-2 flex-row items-center"
+          >
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              data-prefix="fas"
+              data-icon="house"
+              class="svg-inline--fa fa-house w-5 h-5"
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 576 512"
+            >
+              <path
+                fill="currentColor"
+                d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"
+              ></path>
+            </svg>
+            Home
+          </li>
+          <li
+            class="mb-4 p-2 hover:bg-[var(--color-primary-light)] hover:text-white cursor-pointer rounded-lg flex gap-2 flex-row items-center"
+          >
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              data-prefix="fas"
+              data-icon="house"
+              class="svg-inline--fa fa-house w-5 h-5"
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 576 512"
+            >
+              <path
+                fill="currentColor"
+                d="M4.7 4.7C8.5 .9 13.9-.7 19.1 .3L89.6 14.4c9.3 1.9 17.8 6.4 24.5 13.1L393.4 306.7l-86.6 86.6L27.5 114.2c-6.7-6.7-11.3-15.2-13.1-24.5L.3 19.1C-.7 13.9 .9 8.5 4.7 4.7zm454.6 304l16 16c4.7 4.7 6 11.8 3.3 17.8l-27.5 62 56.2 56.2c6.2 6.2 6.2 16.4 0 22.6l-24 24c-6.2 6.2-16.4 6.2-22.6 0l-56.2-56.2-62 27.5c-6.1 2.7-13.1 1.4-17.8-3.3l-16-16c-6.2-6.2-6.2-16.4 0-22.6l128-128c6.2-6.2 16.4-6.2 22.6 0zM96 329.4l50.7-50.7 86.6 86.6L182.6 416l20.7 20.7c6.2 6.2 6.2 16.4 0 22.6l-16 16c-4.7 4.7-11.8 6-17.8 3.3l-62-27.5L51.3 507.3c-6.2 6.2-16.4 6.2-22.6 0l-24-24c-6.2-6.2-6.2-16.4 0-22.6l56.2-56.2-27.5-62c-2.7-6.1-1.4-13.1 3.3-17.8l16-16c6.2-6.2 16.4-6.2 22.6 0L96 329.4zM484.5 114.2L365.3 233.4l-86.6-86.6L397.8 27.5c6.7-6.7 15.2-11.3 24.5-13.1L492.9 .3c5.2-1 10.7 .6 14.5 4.4s5.4 9.2 4.4 14.5L497.6 89.6c-1.9 9.3-6.4 17.8-13.1 24.5z"
+              ></path>
+            </svg>
+            QuickMatch
+          </li>
+          <li
+            class="mb-4 p-2 bg-[var(--color-accent)] text-[var(--color-primary)] cursor-pointer rounded-lg flex gap-2 flex-row items-center"
+          >
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              data-prefix="fas"
+              data-icon="house"
+              class="svg-inline--fa fa-house w-5 h-5"
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 576 512"
+            >
+              <path
+                fill="currentColor"
+                d="M400 0H176c-26.5 0-48.1 21.8-47.1 48.2c.2 5.3 .4 10.6 .7 15.8H24C10.7 64 0 74.7 0 88c0 92.6 33.5 157 78.5 200.7c44.3 43.1 98.3 64.8 138.1 75.8c23.4 6.5 39.4 26 39.4 45.6c0 20.9-17 37.9-37.9 37.9H192c-17.7 0-32 14.3-32 32s14.3 32 32 32H384c17.7 0 32-14.3 32-32s-14.3-32-32-32H357.9C337 448 320 431 320 410.1c0-19.6 15.9-39.2 39.4-45.6c39.9-11 93.9-32.7 138.2-75.8C542.5 245 576 180.6 576 88c0-13.3-10.7-24-24-24H446.4c.3-5.2 .5-10.4 .7-15.8C448.1 21.8 426.5 0 400 0zM48.9 112h84.4c9.1 90.1 29.2 150.3 51.9 190.6c-24.9-11-50.8-26.5-73.2-48.3c-32-31.1-58-76-63-142.3zM464.1 254.3c-22.4 21.8-48.3 37.3-73.2 48.3c22.7-40.3 42.8-100.5 51.9-190.6h84.4c-5.1 66.3-31.1 111.2-63 142.3z"
+              ></path>
+            </svg>
+            Tournaments
+          </li>
+          <li
+            class="mb-4 p-2 hover:bg-[var(--color-primary-light)] hover:text-white cursor-pointer rounded-lg flex gap-2 flex-row items-center"
+          >
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              data-prefix="fas"
+              data-icon="house"
+              class="svg-inline--fa fa-house w-5 h-5"
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 576 512"
+            >
+              <path
+                fill="currentColor"
+                d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0H21.3C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3H405.3zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352H378.7C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z"
+              ></path>
+            </svg>
+            Teams
+          </li>
+          <li
+            class="mb-4 p-2 hover:bg-[var(--color-primary-light)] hover:text-white cursor-pointer rounded-lg flex gap-2 flex-row items-center"
+          >
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              data-prefix="fas"
+              data-icon="house"
+              class="svg-inline--fa fa-house w-5 h-5"
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 576 512"
+            >
+              <path
+                fill="currentColor"
+                d="M320 64A64 64 0 1 0 192 64a64 64 0 1 0 128 0zm-96 96c-35.3 0-64 28.7-64 64v48c0 17.7 14.3 32 32 32h1.8l11.1 99.5c1.8 16.2 15.5 28.5 31.8 28.5h38.7c16.3 0 30-12.3 31.8-28.5L318.2 304H320c17.7 0 32-14.3 32-32V224c0-35.3-28.7-64-64-64H224zM132.3 394.2c13-2.4 21.7-14.9 19.3-27.9s-14.9-21.7-27.9-19.3c-32.4 5.9-60.9 14.2-82 24.8c-10.5 5.3-20.3 11.7-27.8 19.6C6.4 399.5 0 410.5 0 424c0 21.4 15.5 36.1 29.1 45c14.7 9.6 34.3 17.3 56.4 23.4C130.2 504.7 190.4 512 256 512s125.8-7.3 170.4-19.6c22.1-6.1 41.8-13.8 56.4-23.4c13.7-8.9 29.1-23.6 29.1-45c0-13.5-6.4-24.5-14-32.6c-7.5-7.9-17.3-14.3-27.8-19.6c-21-10.6-49.5-18.9-82-24.8c-13-2.4-25.5 6.3-27.9 19.3s6.3 25.5 19.3 27.9c30.2 5.5 53.7 12.8 69 20.5c3.2 1.6 5.8 3.1 7.9 4.5c3.6 2.4 3.6 7.2 0 9.6c-8.8 5.7-23.1 11.8-43 17.3C374.3 457 318.5 464 256 464s-118.3-7-157.7-17.9c-19.9-5.5-34.2-11.6-43-17.3c-3.6-2.4-3.6-7.2 0-9.6c2.1-1.4 4.8-2.9 7.9-4.5c15.3-7.7 38.8-14.9 69-20.5z"
+              ></path>
+            </svg>
+            Portals
+          </li>
+          <li
+            class="mb-4 p-2 hover:bg-[var(--color-primary-light)] hover:text-white cursor-pointer rounded-lg flex gap-2 flex-row items-center"
+          >
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              data-prefix="fas"
+              data-icon="house"
+              class="svg-inline--fa fa-house w-5 h-5"
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 576 512"
+            >
+              <path
+                fill="currentColor"
+                d="M96 96c0-35.3 28.7-64 64-64H448c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H80c-44.2 0-80-35.8-80-80V128c0-17.7 14.3-32 32-32s32 14.3 32 32V400c0 8.8 7.2 16 16 16s16-7.2 16-16V96zm64 24v80c0 13.3 10.7 24 24 24H424c13.3 0 24-10.7 24-24V120c0-13.3-10.7-24-24-24H184c-13.3 0-24 10.7-24 24zm0 184c0 8.8 7.2 16 16 16h96c8.8 0 16-7.2 16-16s-7.2-16-16-16H176c-8.8 0-16 7.2-16 16zm160 0c0 8.8 7.2 16 16 16h96c8.8 0 16-7.2 16-16s-7.2-16-16-16H336c-8.8 0-16 7.2-16 16zM160 400c0 8.8 7.2 16 16 16h96c8.8 0 16-7.2 16-16s-7.2-16-16-16H176c-8.8 0-16 7.2-16 16zm160 0c0 8.8 7.2 16 16 16h96c8.8 0 16-7.2 16-16s-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z"
+              ></path>
+            </svg>
+            Magazine
+          </li>
+        </ul>
       </section>
-    </header>
 
-    <main>
-      <section id="hero" class="hero">
-        <h1>Debix</h1>
-      </section>
-      <section id="products" class="products">
-        <h1>Products</h1>
-      </section>
-      <section id="workflow" class="workflow">
-        <h1>Workflow</h1>
+      <!-- MAIN SECTION -->
+      <section
+        id="main_section"
+        class="relative xl:ml-[11%] h-full text-[var(--color-secondary)]"
+      >
+        <div
+          id="hero"
+          class="absolute top-0 left-0 z-0 xl:ml-1 xl:w-[80vw] h-[300px] w-full bg-cover xl:bg-contain bg-top bg-no-repeat bg-[url('https://cdn.epulze.com/cms/587cf1bf-b43d-4daa-b30c-84ae3a57aa42-dota2_tournament_5v5primecaptainsmode03_background-webp')]"
+        ></div>
+        <div
+          class="z-10 brightness-[95%] w-full absolute top-0 h-[400px] relative bg-gradient-to-b from-[rgba(0,0,0,0)] to-[rgba(8,19,37,2)]"
+        ></div>
+        <section
+          id="under_hero"
+          class="relative z-20 w-full xl:ml-56 -top-52 xl:flex-nowrap xl:w-[80%] justify-center flex flex-col"
+        >
+        <div id="flex_container">
+          <div id="left_content" class="w-full p-4 h-full xl:w-10/12">
+            <h1
+              id="tournamentName"
+              class="text-[37px] font-medium mb-8 text-white text-center xl:text-left"
+            >
+              Dota 5v5 Tuesday
+            </h1>
+            <div
+              id="sign_closes"
+              class="mb-6 flex flex-col xl:flex-row justify-between w-"
+            >
+              <h2 class="text-[30px] font-medium">
+                Sign up closes in
+                <span id="timeCloses" class="text-white">12h 24m</span>
+              </h2>
+              <hr />
+              <button
+                id="link_game_acc"
+                class="xl:w-1/3 w-full mr-1 md:mr-6 h-10 btn rounded-md px-4 bg-[var(--color-accent)] hover:bg-white transition ease-in-out duration-300 uppercase font-semibold text-sm md:text-lg text-[#081325] showAuthWin"
+              >
+                LINK GAME ACCOUNT
+              </button>
+              
+            </div>
+            <div
+              id="container_mode"
+              class="grid lg:grid-cols-3 grid-cols-2 grid-rows-2 gap-row-4 mb-8 gap-4 font-medium"
+            >
+              <div class="col">
+                <p>MODE</p>
+                <p class="text-white">Captain Mode</p>
+              </div>
+              <div>
+                <p>SERVER</p>
+                <p class="text-white">Asia</p>
+              </div>
+              <div>
+                <p>ENTRY FEE</p>
+                <p class="text-white">Free to enter</p>
+              </div>
+              <div>
+                <p>STARTS AT</p>
+                <p class="text-white" id="startsAt">30/05/2023 15:00</p>
+              </div>
+            </div>
+            <hr />
+            <!-- RESTRICTIONS TABLE -->
+            <div id="restrictions" class="xl:mb-8">
+              <h1 class="text-4xl mb-8 text-white">Tournament restrictions</h1>
+              <div
+                class="grid lg:grid-cols-3 grid-cols-2 grid-rows-2 gap-row-4 xl:mb-8 xl:gap-4 gap-2 font-medium uppercase"
+              >
+                <div>
+                  <p class="">Allowed Countries</p>
+                  <p class="text-white">all</p>
+                </div>
+                <div>
+                  <p class="">Allowed exceptions</p>
+                  <p class="text-white normal-case">
+                    0 out of 5 team members may be from other countries
+                  </p>
+                </div>
+                <div>
+                  <p class="">RANK RESTRICTION</p>
+                  <p class="text-white">Between 1 and 2</p>
+                </div>
+                <div>
+                  <p class="">MINIMUM TOURNAMENT SIZE</p>
+                  <p class="text-white">4</p>
+                </div>
+              </div>
+            <hr />
+            
+          </div>
+            </div>
+            <section id="right_content" class="lg:w-6/12 w-full flex flex-col">
+                <!-- VOTE FOR THE TEAM -->
+                <div
+                  id="table_container"
+                  class="flex flex-col text-white w-full p-4 rounded-lg xl:mt-16"
+                >
+                  <p
+                    class="text-2xl font-medium p-4 bg-[var(--color-blue-light)] border-b-[var(--color-primary)] border-b-2"
+                  >
+                    VOTE FOR THE TEAM
+                  </p>
+                  <div
+                    class="flex flex-row justify-between bg-[var(--color-blue-light)] border-b-[var(--color-primary)] border-b-2 items-center content-center p-4"
+                  >
+                    <p class="text-xl font-medium">TEAMS</p>
+                  </div>
+                  <div
+                    class="flex flex-row justify-between bg-[var(--color-blue-dark)] border-b-[var(--color-primary)] border-b-2 items-center content-center p-4 font-medium text-xl hover:bg-[var(--color-blue-light)]"
+                  >
+                    <div class="flex flex-row gap-1 content-center">
+                      <div
+                        id="team1_img_url"
+                        class="bg-no-repeat bg-cover w-8 h-8 rounded-full bg-[url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.0YFGX0Msi5P0irPI1O8NuAAAAA%26pid%3DApi&f=1&ipt=41807cc41af2212c778d909e2e0cfe18e8d14e3551a70b2abacb390091044f41&ipo=images')]"
+                      ></div>
+                      <p id="team1_name">Dota Mastery</p>
+                    </div>
+                    <button
+                      id="vote_1"
+                      class="w-1/4 h-10 btn rounded-lg px-4 bg-[var(--color-accent)] hover:bg-white transition ease-in-out duration-300 uppercase font-semibold text-sm md:text-lg text-[#081325] showAuthWin"
+                    >
+                      VOTE
+                    </button>
+                  </div>
+                  <div
+                    class="flex flex-row justify-between bg-[var(--color-blue-dark)] border-b-[var(--color-primary)] border-b-2 items-center content-center p-4 font-medium text-xl hover:bg-[var(--color-blue-light)]"
+                  >
+                    <div class="flex flex-row gap-1 content-center">
+                      <div
+                        id="team2_img_url"
+                        class="bg-no-repeat bg-cover w-8 h-8 rounded-full bg-[url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.9XI8oiEeadlzbE1gx0O2GAHaGI%26pid%3DApi&f=1&ipt=38f35c7c90a15c3c417934ec8a4b40c2dcb3afcaf25fc4c35623ed220939f925&ipo=images')]"
+                      ></div>
+                      <p id="team2_name">ABOBA</p>
+                    </div>
+                    <button
+                      id="vote_2"
+                      class="w-1/4 h-10 btn rounded-lg px-4 bg-[var(--color-accent)] hover:bg-white transition ease-in-out duration-300 uppercase font-semibold text-sm md:text-lg text-[#081325] showAuthWin"
+                    >
+                      VOTE
+                    </button>
+                  </div>
+                </div>
+                <!--    TOURNAMENT PRIZE -->
+                <div
+                  id="table_container"
+                  class="flex flex-col text-white w-full p-4 rounded-lg"
+                >
+                  <p
+                    class="text-2xl font-medium p-4 bg-[var(--color-blue-light)] border-b-[var(--color-primary)] border-b-2"
+                  >
+                    TOURNAMENT PRIZE
+                  </p>
+                  <div
+                    class="flex flex-row justify-between bg-[var(--color-blue-light)] border-b-[var(--color-primary)] border-b-2 items-center content-center p-4"
+                  >
+                    <p class="text-xl font-medium">PRIZE POOL</p>
+                    <p class="text-2xl font-medium">$60</p>
+                  </div>
+                  <div
+                    class="flex flex-row justify-between bg-[var(--color-blue-dark)] border-b-[var(--color-primary)] border-b-2 items-center content-center p-4 font-medium text-xl hover:bg-[var(--color-blue-light)]"
+                  >
+                    <div class="flex flex-row gap-1">
+                      <div
+                        class="bg-no-repeat bg-cover w-7 h-6 bg-[url('https://epulze.com/static/build/first-place-296cd05cdd.svg')]"
+                      ></div>
+                      <p class="">1st Place</p>
+                    </div>
+                    <p>$50</p>
+                  </div>
+                  <div
+                    class="flex flex-row justify-between bg-[var(--color-blue-dark)] border-b-[var(--color-primary)] border-b-2 items-center content-center p-4 font-medium text-xl hover:bg-[var(--color-blue-light)]"
+                  >
+                    <div class="flex flex-row gap-1">
+                      <div
+                        class="bg-no-repeat bg-cover w-7 h-6 bg-[url('https://epulze.com/static/build/second-place-b007c36daa.svg')]"
+                      ></div>
+                      <p class="">2st Place</p>
+                    </div>
+                    <p>$50</p>
+                  </div>
+                </div>
+                <!--  AVAILABLE SLOTS -->
+                <!-- <div
+                  id="table_container"
+                  class="flex flex-col text-white w-full p-4 rounded-lg"
+                >
+                  <p
+                    class="text-2xl font-medium p-4 bg-[var(--color-blue-light)] border-b-[var(--color-primary)] border-b-2"
+                  >
+                    AVAILABLE SLOTS
+                  </p>
+                  <div
+                    class="flex flex-row justify-between bg-[var(--color-blue-dark)] border-b-[var(--color-primary)] border-b-2 items-center content-center p-3 font-medium text-lg hover:bg-[var(--color-blue-light)]"
+                  >
+                    <p class="text-[var(--color-secondary)]">Filled slots</p>
+                    <p class="">15/16</p>
+                  </div>
+                  <div
+                    class="flex flex-row justify-between bg-[var(--color-blue-dark)] border-b-[var(--color-primary)] border-b-2 items-center content-center p-3 font-medium text-lg hover:bg-[var(--color-blue-light)]"
+                  >
+                    <p class="text-[var(--color-secondary)]">Signed up</p>
+                    <p class="">15</p>
+                  </div>
+                  <div
+                    class="flex flex-row justify-between bg-[var(--color-blue-dark)] border-b-[var(--color-primary)] border-b-2 items-center content-center p-3 font-medium text-lg hover:bg-[var(--color-blue-light)]"
+                  >
+                    <p class="text-[var(--color-secondary)]">Checked in</p>
+                    <p class="">15</p>
+                  </div>
+                  <div
+                    class="flex flex-row justify-between bg-[var(--color-blue-dark)] border-b-[var(--color-primary)] border-b-2 items-center content-center p-3 font-medium text-lg hover:bg-[var(--color-blue-light)]"
+                  >
+                    <p class="text-[var(--color-secondary)]">Reserves</p>
+                    <p class="">1</p>
+                  </div> -->
+                </div>
+
+                <div id="add_info" class="p-4">
+                    <div id="tour_info" class="mb-8">
+                        <h1 class="text-4xl mb-8 text-white">Tournament info</h1>
+                        <p class="font-medium">
+                          This is an open-rank tournament, meaning that users that are
+                          ranked from Rank 1 to Rank 8 are eligible for this tournament!
+                          This is equivalent to Dota 2's Herald to Immortal ranks.
+                        </p>
+                        <br />
+                        <p class="font-medium">
+                          This tournament is played in a best-of-one (BO1),
+                          single-elimination format. No entry fee is required.
+                          <span class="font-bold"
+                            >The game mode is 5v5 Captain's Mode.</span
+                          >
+                        </p>
+                        <br />
+                        <p class="font-bold">
+                          Our tournaments require four teams to start, to ensure you get
+                          the best competitive experience. A tournament containing less
+                          than the mentioned amount will automatically be cancelled, and
+                          any entry fee will be refunded through our customer support.
+                        </p>
+                      </div>
+                      <hr />
+                      <div id="gen_info" class="mb-8">
+                        <h1 class="text-4xl mb-8 text-white">General Information</h1>
+                        <p class="font-medium">
+                          Check-in opens 60 minutes before the tournament starts.
+                        </p>
+                        <br />
+                        <p class="font-medium">
+                          After that, players have 45 minutes to confirm their
+                          participation.
+                        </p>
+                        <br />
+                        <p class="font-medium">
+                          Make sure to read and understand the instructions in the
+                          articles under ”How it Works” before joining a game.
+                        </p>
+                        <br />
+                        <p class="font-medium">
+                          You are required to use the same Steam account you have synced
+                          with your Epulze account.
+                        </p>
+                        <br />
+                        <p class="font-medium">
+                          Each break between matches in a tournament is 5 minutes long.
+                        </p>
+                      </div>
+                      <hr />
+                      <div id="join_info" class="mb-8">
+                        <h1 class="text-4xl mb-8 text-white">Join the Game</h1>
+                        <p class="font-medium">
+                          You will receive a lobby invite through the Dota 2 client or,
+                          alternatively through the Epulze pre-game view.
+                        </p>
+                        <br />
+                        <p class="font-medium">
+                          Players have 5 minutes (1v1) or 10 minutes (5v5) to join the
+                          in-game lobby.
+                        </p>
+                        <br />
+                        <p class="font-medium">
+                          The game will start automatically when all player slots are
+                          full.
+                        </p>
+                        <br />
+                        <p class="font-medium">
+                          Make sure you and your team are in the correct slots.
+                        </p>
+                      </div>
+                    </div>
+              </section>
+            <!-- MODES TABLE -->
+        </div>
+            
+        
+        </section>
+        
+        <footer class="w-full flex flex-col items-center">
+          <div class="max-w-7xl w-full py-5 px-3">
+            <div class="row_1 flex gap-1">
+              <div class="footer_logo w-1/2">
+                <a href="https://epulze.com/home" class="">
+                  <img
+                    src="https://epulze.com/static/build/logo-footer-19cee6f446.svg"
+                    alt=""
+                    height="20px"
+                    width="170px"
+                  />
+                </a>
+                <div class="mt-[5px] text-xs text-slate-500">
+                  Epulze is a registered trademark of Swedish company Esports
+                  Pulze AB
+                </div>
+              </div>
+              <div class="footer_age w-1/2">
+                <div class="age_limit_ico">13</div>
+              </div>
+            </div>
+            <div class="row_2 mt-5 text-slate-500 font-bold uppercase">
+              <div class="text-[#92a2be] text-lg">Powered by</div>
+              <span class="powered_logo powered_logo_steam"></span>
+              <span class="powered_logo powered_logo_dota"></span>
+              <span class="powered_logo powered_logo_le"></span>
+              <span class="powered_logo powered_logo_visa"></span>
+              <span class="powered_logo powered_logo_mc"></span>
+              <span class="powered_logo powered_logo_psc"></span>
+            </div>
+          </div>
+        </footer>
+
+        <script
+          defer
+          src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+        ></script>
       </section>
     </main>
+
+    <script>
+      /* CONSTANT VARS */
+
+      const _NAME_OF_TOURNAMENT = "Dota 5v5 Sunday";
+      const _TEAM_1 = {
+        name: "Dota Mastery",
+        img_url:
+          "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.0YFGX0Msi5P0irPI1O8NuAAAAA%26pid%3DApi&f=1&ipt=41807cc41af2212c778d909e2e0cfe18e8d14e3551a70b2abacb390091044f41&ipo=images",
+      };
+      const _TEAM_2 = {
+        name: "Eclipse",
+        img_url:
+          "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.9XI8oiEeadlzbE1gx0O2GAHaGI%26pid%3DApi&f=1&ipt=38f35c7c90a15c3c417934ec8a4b40c2dcb3afcaf25fc4c35623ed220939f925&ipo=images",
+      };
+
+      const mainloop = () => {
+        document.addEventListener(
+          "DOMContentLoaded",
+          (init_button = () => {
+            setTextVarsFunc();
+            timeLeftFunc(); //RUNNING AUTO Left Time
+            handleModal();
+          })
+        );
+      };
+      const openModal = () => {
+        document.getElementById("modal_container_full").classList.add("show");
+        document.getElementById("modal_container_shadow").classList.add("show");
+      };
+      const closeModal = () => {
+        document
+          .getElementById("modal_container_full")
+          .classList.remove("show");
+        document
+          .getElementById("modal_container_shadow")
+          .classList.remove("show");
+      };
+      const handleModal = () => {
+        /* OPEN */
+        document
+          .getElementById("link_game_acc")
+          .addEventListener("click", openModal);
+        document.getElementById("sign_in").addEventListener("click", openModal);
+        document
+          .getElementById("sign_out")
+          .addEventListener("click", openModal);
+        document.getElementById("vote_1").addEventListener("click", openModal);
+        document.getElementById("vote_2").addEventListener("click", openModal);
+        /* CLOSE MODAL */
+
+        document
+          .getElementById("modal_container_shadow")
+          .addEventListener("click", closeModal);
+        document
+          .getElementById("cross_close")
+          .addEventListener("click", closeModal);
+      };
+
+      const rnmdTimeFunc = (date, startsAt, timeLeft) => {
+        const rndh = Math.floor(Math.random() * 5) + 1 + date.getHours();
+        startsAt.innerHTML = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()} ${rndh}:00`;
+        timeLeft.innerHTML = `${rndh - date.getHours()}h ${
+          60 - date.getMinutes()
+        }m`;
+      };
+
+      const SimpleTimeFunc = (date, startsAt, timeLeft) => {
+        timeLeft.innerHTML = `${3}h ${60 - date.getMinutes()}m`;
+        startsAt.innerHTML = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()} ${
+          date.getHours() + 3
+        }:${date.getMinutes()}`;
+      };
+
+      const timeLeftFunc = () => {
+        const timeVar = new Date();
+        const startsAt = document.getElementById("startsAt");
+        const timeLeft = document.getElementById("timeCloses");
+        rnmdTimeFunc(timeVar, startsAt, timeLeft);
+        /* SimpleTimeFunc(timeVar, startsAt, timeLeft); */
+      };
+
+      const setTextVarsFunc = () => {
+        document.getElementById("tournamentName").innerHTML =
+          _NAME_OF_TOURNAMENT;
+        document.getElementById(
+          "team1_img_url"
+        ).className = `bg-no-repeat bg-cover w-8 h-8 rounded-full bg-[url("${_TEAM_1.img_url}")]`;
+        document.getElementById("team1_name").innerHTML = _TEAM_1.name;
+        document.getElementById(
+          "team2_img_url"
+        ).className = `bg-no-repeat bg-cover w-8 h-8 rounded-full bg-[url("${_TEAM_2.img_url}")]`;
+        document.getElementById("team2_name").innerHTML = _TEAM_2.name;
+      };
+
+      mainloop();
+    </script>
   </body>
 </html>
