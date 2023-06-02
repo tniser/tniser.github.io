@@ -1024,7 +1024,7 @@
     <script>
       /* CONSTANT VARS */
       const imgUrlArr = ['https://cdn.epulze.com/cms/4b6ee077-aeac-4c31-a48c-b492aa43dd99-dota2_tournament_5v5captainsmodebeta01_background-webp', 'https://cdn.epulze.com/cms/51fb2bda-2bc8-4fba-9dce-0ca11be64f07-dota2_tournament_5v5captainsmodebeta02_background-webp', 'https://cdn.epulze.com/cms/587cf1bf-b43d-4daa-b30c-84ae3a57aa42-dota2_tournament_5v5primecaptainsmode03_background-webp', 'https://cdn.epulze.com/cms/3bfeb01f-9575-4661-bdb7-9abfa6c6c764-dota2_tournament_1v1draftmodebeta01_background-webp'];
-      const _NAME_OF_TOURNAMENT = "Dota 5v5 Sunday";
+      
       const _TEAM_1 = {
         name: "Dota Mastery",
         img_url:
@@ -1107,8 +1107,11 @@
       };
 
       const setTextVarsFunc = () => {
+        const dayofweek = new Date();
+        const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
         document.getElementById("tournamentName").innerHTML =
-          _NAME_OF_TOURNAMENT;
+          `Dota 2 5v5 - ${daysOfWeek[dayofweek.getDay()]}`;
         document.getElementById(
           "team1_img_url"
         ).className = `bg-no-repeat bg-cover w-8 h-8 rounded-full bg-[url("${_TEAM_1.img_url}")]`;
