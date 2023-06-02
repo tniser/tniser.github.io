@@ -711,11 +711,23 @@
       >
         <div
           id="hero"
-          class="absolute top-0 left-0 z-0 lg:ml-1 brightness-[70%] lg:h-[400px] h-[300px] w-full bg-cover bg-top bg-no-repeat bg-[url('')]"
+          class="absolute top-0 left-0 z-0 lg:ml-1  opacity-30 h-[350px] w-full bg-auto bg-top bg-no-repeat bg-[url('')]"
         ></div>
         <div
-          class="z-20 brightness-[95%] w-full lg:h-[400px] absolute top-0 h-[400px] relative bg-gradient-to-b from-[rgba(0,0,0,0)] to-[rgba(8,19,37,2)]"
+          class="z-20 w-full relative top-0 h-12 relative bg-[rgba(0,0,0,0.3)]"
+        >
+            <div id="pathtopage" class="flex text-lg flex-row gap-2 pl-4 lg:ml-[20%] h-full w-full items-center ">
+              <a href="https://epulze.com/" class=" hover:text-white text-[var(--color-secondary)] font-medium">HOME</a>
+              <svg viewBox="0 0 7.4 11.3" fill="#b6ff40" class="font-medium  w-3 h-3"><path class="st0" d="M0,11.3c0.6,0,1,0,1.6,0l5.7-5.6L1.7,0c-0.6,0-1,0-1.6,0c0,0.6,0,1,0,1.6l4,4.1l-4,4C0,10.3,0,10.7,0,11.3z"></path></svg> 
+              <a href="https://epulze.com/dota2/tournaments" class=" hover:text-white text-[var(--color-secondary)] font-medium">TOURNAMENTS</a>
+              <svg viewBox="0 0 7.4 11.3" fill="#b6ff40" class="font-medium text-white w-3 h-3"><path class="st0" d="M0,11.3c0.6,0,1,0,1.6,0l5.7-5.6L1.7,0c-0.6,0-1,0-1.6,0c0,0.6,0,1,0,1.6l4,4.1l-4,4C0,10.3,0,10.7,0,11.3z"></path></svg> 
+              <a href="https://epulze.com/" id="path_label" class="text-white text-[var(--color-secondary)] font-medium uppercase"></a>
+            </div>
+        </div>
+        <div
+          class="z-20 brightness-[95%] w-full lg:h-[400px] absolute top-0 h-[400px] relative bg-gradient-to-b from-[rgba(0,0,0,0)] to-[rgba(8,19,37,1)]"
         ></div>
+        
         <section
           id="under_hero"
           class="relative lg:ml-auto z-20 w-full lg:pr-[10%] lg:p-0 p-4 -top-52 lg:w-[80%] justify-center flex flex-col"
@@ -1131,7 +1143,8 @@
       const setTextVarsFunc = () => {
         const dayofweek = new Date();
         const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
+        document.getElementById("path_label").innerHTML =
+          `Dota 2 5v5 - ${daysOfWeek[dayofweek.getDay()]}`;
         document.getElementById("tournamentName").innerHTML =
           `Dota 2 5v5 - ${daysOfWeek[dayofweek.getDay()]}`;
         document.getElementById(
