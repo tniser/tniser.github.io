@@ -364,50 +364,6 @@
                 >
               </div>
           </div>
-  
-          <!-- Javascript code -->
-          <script>
-            
-            const burger = document.getElementById("burger");
-            const menu_list = document.getElementById("navbar_menu");
-            const shadow_menu = document.getElementById("shadow_before_menu");
-            const close_menu = document.getElementById("close_menu");
-
-            burger.addEventListener("click", () => {
-                    menu_list.classList.add("show");
-                    shadow_menu.classList.add("show");
-            })
-            shadow_menu.addEventListener("click", () => {
-                menu_list.classList.remove("show");
-                shadow_menu.classList.remove("show");
-            })
-            close_menu.addEventListener("click", () => {
-                menu_list.classList.remove("show");
-                shadow_menu.classList.remove("show");
-            })
-
-            var menu = document.getElementById("menu");
-  
-            // open/close the menu when the user clicks on the button
-            function toggleMenu() {
-              if (menu.classList.contains("hidden")) {
-                menu.classList.remove("hidden");
-              } else {
-                menu.classList.add("hidden");
-              }
-            }
-  
-            // close the menu when the user clicks outside of it
-            window.onclick = function (event) {
-              var dropdownWrapper = document.getElementById("dropdown-wrapper");
-              if (
-                !dropdownWrapper.contains(event.target) &&
-                !menu.classList.contains("hidden")
-              ) {
-                menu.classList.add("hidden");
-              }
-            };
-          </script>
         </div>
     </header>
     <div id="modal_container_full" class="modal w-full h-full">
@@ -733,7 +689,7 @@
       >
         <div
           id="hero"
-          class="absolute top-0 left-0 z-0 lg:ml-1  lg:h-[400px] h-[300px] w-full bg-cover bg-top bg-no-repeat bg-[url('https://cdn.epulze.com/cms/587cf1bf-b43d-4daa-b30c-84ae3a57aa42-dota2_tournament_5v5primecaptainsmode03_background-webp')]"
+          class="absolute top-0 left-0 z-0 lg:ml-1 brightness-[70%] lg:h-[400px] h-[300px] w-full bg-cover bg-top bg-no-repeat bg-[url('')]"
         ></div>
         <div
           class="z-20 brightness-[95%] w-full lg:h-[400px] absolute top-0 h-[400px] relative bg-gradient-to-b from-[rgba(0,0,0,0)] to-[rgba(8,19,37,2)]"
@@ -748,7 +704,7 @@
               id="tournamentName"
               class="text-[37px] font-medium mb-8 text-white text-center lg:text-left"
             >
-              Dota 5v5 Tuesday
+              Dota 5v5
             </h1>
             <div
               id="sign_closes"
@@ -761,7 +717,7 @@
 
               <button
                 id="link_game_acc"
-                class="lg:w-1/2 w-full mr-1 h-10 btn rounded-md px-4 bg-[var(--color-accent)] hover:bg-white transition ease-in-out duration-300 uppercase font-semibold text-sm md:text-lg text-[#081325] showAuthWin"
+                class="lg:w-1/2 w-full mr-1 h-10 rounded-md px-4 bg-[var(--color-accent)] hover:bg-white transition ease-in-out duration-300 uppercase font-semibold text-sm 2xl:text-base text-[#081325] showAuthWin"
               >
                 LINK GAME ACCOUNT
               </button>
@@ -1067,7 +1023,7 @@
 
     <script>
       /* CONSTANT VARS */
-
+      const imgUrlArr = ['https://cdn.epulze.com/cms/4b6ee077-aeac-4c31-a48c-b492aa43dd99-dota2_tournament_5v5captainsmodebeta01_background-webp', 'https://cdn.epulze.com/cms/51fb2bda-2bc8-4fba-9dce-0ca11be64f07-dota2_tournament_5v5captainsmodebeta02_background-webp', 'https://cdn.epulze.com/cms/587cf1bf-b43d-4daa-b30c-84ae3a57aa42-dota2_tournament_5v5primecaptainsmode03_background-webp', 'https://cdn.epulze.com/cms/3bfeb01f-9575-4661-bdb7-9abfa6c6c764-dota2_tournament_1v1draftmodebeta01_background-webp'];
       const _NAME_OF_TOURNAMENT = "Dota 5v5 Sunday";
       const _TEAM_1 = {
         name: "Dota Mastery",
@@ -1084,9 +1040,13 @@
         document.addEventListener(
           "DOMContentLoaded",
           (init_button = () => {
-            setTextVarsFunc();
-            timeLeftFunc(); //RUNNING AUTO Left Time
+            /* AUTO CONTENT */
+            handleHeroChange();
+            setTextVarsFunc(); //
+            timeLeftFunc(); //
+            /* ButtonsHandlers */
             handleModal();
+            
           })
         );
       };
@@ -1159,7 +1119,53 @@
         document.getElementById("team2_name").innerHTML = _TEAM_2.name;
       };
 
+      const handleHeroChange = () => {
+
+        const rndmImgId = Math.floor(Math.random()*3);
+        document.getElementById("hero").classList.replace("bg-[url('')]",`bg-[url("${imgUrlArr[rndmImgId]}")]`);
+      }
+
       mainloop();
+            
+      const burger = document.getElementById("burger");
+      const menu_list = document.getElementById("navbar_menu");
+      const shadow_menu = document.getElementById("shadow_before_menu");
+      const close_menu = document.getElementById("close_menu");
+
+      burger.addEventListener("click", () => {
+              menu_list.classList.add("show");
+              shadow_menu.classList.add("show");
+      })
+      shadow_menu.addEventListener("click", () => {
+          menu_list.classList.remove("show");
+          shadow_menu.classList.remove("show");
+      })
+      close_menu.addEventListener("click", () => {
+          menu_list.classList.remove("show");
+          shadow_menu.classList.remove("show");
+      })
+
+      var menu = document.getElementById("menu");
+
+      // open/close the menu when the user clicks on the button
+      function toggleMenu() {
+        if (menu.classList.contains("hidden")) {
+          menu.classList.remove("hidden");
+        } else {
+          menu.classList.add("hidden");
+        }
+      }
+
+      // close the menu when the user clicks outside of it
+      window.onclick = function (event) {
+        var dropdownWrapper = document.getElementById("dropdown-wrapper");
+        if (
+          !dropdownWrapper.contains(event.target) &&
+          !menu.classList.contains("hidden")
+        ) {
+          menu.classList.add("hidden");
+        }
+      };
     </script>
   </body>
 </html>
