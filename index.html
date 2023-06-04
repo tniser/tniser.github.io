@@ -328,7 +328,7 @@
             Sign up
           </button>
 
-          <div id="dropdown-wrapper" class="inline-block">
+         <!--  <div id="dropdown-wrapper" class="inline-block">
               <button
                 onclick="toggleMenu()"
                 class="h-10 px-4 text-[var(--color-primary)] lg:text-[#92a2be] flex gap-2 items-center font-bold hover:text-white"
@@ -362,7 +362,7 @@
                   >Spanish</a
                 >
               </div>
-          </div>
+          </div> -->
         </div>
     </header>
     <div id="modal_container_full" class="modal w-full h-full">
@@ -710,7 +710,7 @@
       >
         <div
           id="hero"
-          class="absolute top-0 left-0 z-0 lg:ml-1  opacity-30 h-[350px] w-full bg-auto bg-top bg-no-repeat bg-[url('')]"
+          class="absolute top-0 left-0 z-0 lg:ml-1  opacity-30 h-[350px] w-full bg-auto bg-top bg-no-repeat bg-[url('https://cdn.epulze.com/cms/39427911-3e0e-446d-95fa-7630003f316e-dota2_tournament_5v5rank7-8_background-webp')]"
         ></div>
         <div
           class="z-20 w-full relative top-0 h-12 relative bg-[rgba(0,0,0,0.3)]"
@@ -720,7 +720,7 @@
               <svg viewBox="0 0 7.4 11.3" fill="#b6ff40" class="font-medium  w-3 h-3"><path class="st0" d="M0,11.3c0.6,0,1,0,1.6,0l5.7-5.6L1.7,0c-0.6,0-1,0-1.6,0c0,0.6,0,1,0,1.6l4,4.1l-4,4C0,10.3,0,10.7,0,11.3z"></path></svg> 
               <a href="https://epulze.com/dota2/tournaments" class=" hover:text-white text-[var(--color-secondary)] font-medium">TOURNAMENTS</a>
               <svg viewBox="0 0 7.4 11.3" fill="#b6ff40" class="font-medium text-white w-3 h-3"><path class="st0" d="M0,11.3c0.6,0,1,0,1.6,0l5.7-5.6L1.7,0c-0.6,0-1,0-1.6,0c0,0.6,0,1,0,1.6l4,4.1l-4,4C0,10.3,0,10.7,0,11.3z"></path></svg> 
-              <a href="https://epulze.com/" id="path_label" class="text-white text-[var(--color-secondary)] font-medium uppercase"></a>
+              <a href="https://epulze.com/" id="path_label" class="text-white text-[var(--color-secondary)] font-medium uppercase">DOTA 2 5v5 RANK 7-8 CAPITAN MODE</a>
             </div>
         </div>
         <div
@@ -737,7 +737,7 @@
               id="tournamentName"
               class="text-[37px] font-medium mb-8 text-white text-center lg:text-left"
             >
-              Dota 5v5
+            Dota 2 5v5 - Rank 7-8 Captains Mode - Sunday
             </h1>
             <div
               id="sign_closes"
@@ -750,7 +750,7 @@
 
               <button
                 id="link_game_acc"
-                class="lg:w-1/2 w-full mr-1 h-10 rounded-md px-4 bg-[var(--color-accent)] hover:bg-white transition ease-in-out duration-300 uppercase font-semibold text-sm 2xl:text-base text-[#081325] showAuthWin"
+                class="lg:w-1/3 w-full mr-1 h-10 rounded-sm px-4 bg-[var(--color-accent)] hover:bg-white transition ease-in-out duration-300 uppercase font-semibold text-sm 2xl:text-base text-[#081325] showAuthWin"
               >
                 LINK GAME ACCOUNT
               </button>
@@ -767,7 +767,7 @@
               </div>
               <div>
                 <p>SERVER</p>
-                <p class="text-white">Asia</p>
+                <p class="text-white">EU</p>
               </div>
               <div>
                 <p>ENTRY FEE</p>
@@ -935,7 +935,7 @@
                   </div> -->
                 </div>
 
-                <div id="add_info" class="p-4">
+                <div id="add_info" class="p-4 lg:w-[65%]">
                     <div id="tour_info" class="mb-8">
                         <h1 class="text-4xl mb-8 text-white">Tournament info</h1>
                         <p class="font-medium">
@@ -1015,7 +1015,7 @@
         
         </section>
         
-        <footer class="w-full flex flex-col items-center">
+        <footer class="lg:ml-auto z-20 w-full lg:pr-[10%] lg:p-0 p-4 -top-52 lg:w-[80%] w-full flex flex-col items-center">
           <div class="max-w-7xl w-full py-5 px-3">
             <div class="row_1 flex gap-1">
               <div class="footer_logo w-1/2">
@@ -1075,9 +1075,9 @@
           "DOMContentLoaded",
           (init_button = () => {
             /* AUTO CONTENT */
-            handleHeroChange();
-            setTextVarsFunc(); //
-            timeLeftFunc(); //
+            //handleHeroChange();
+            //setTextVarsFunc(); //
+            //timeLeftFunc(); //
             /* ButtonsHandlers */
             handleModal();
             
